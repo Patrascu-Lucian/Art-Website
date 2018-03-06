@@ -1,7 +1,23 @@
+//Variable Overrides
+$body-bg: #ccc;
+
+$theme-colors: (
+  "primary": #791316,
+  "secondary": #663A36,
+  "info": #9999cc
+);
+
+//Bootstrap Sass Files
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// My Imports
+@import "functions";
+
 // Header
 .jumbotron{
   position: relative;
   z-index: 0;
+  min-height: 90vh;
 }
 
 .jumbotron:after {
@@ -11,4 +27,37 @@
    top: 0; left: 0; bottom: 0; right: 0;
    position: absolute;
    z-index: -1;
- }
+}
+
+//SECTIUNI
+.section-a{
+  color: text-color($secondary);
+}
+
+.section-b{
+  color: text-color($primary);
+}
+
+  //CARDS
+.card{
+  .card-link{
+    .card-img{
+      transition: all .3s ease-in-out;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+ //FOOTER
+footer {
+  color: text-color($primary);
+  a{
+    text-decoration: none;
+    &:hover{
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
