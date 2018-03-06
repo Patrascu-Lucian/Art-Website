@@ -1,7 +1,7 @@
 {
-  "name": "starter_pack",
+  "name": "art_website",
   "version": "1.0.0",
-  "description": "Website starter pack",
+  "description": "An website about handmade art",
   "main": "index.js",
   "scripts": {
     "test": "gulp"
