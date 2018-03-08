@@ -99,6 +99,10 @@ footer {
    margin-left: auto;
    margin-right: auto;
   }
+
+  p{
+    text-align: center;
+  }
  }
 
  .hidden-p{
@@ -115,6 +119,7 @@ footer {
 
  @media (min-width: 992px) {
   #light-box {
+
     p{
       text-align: left;
       transform: translateX(-25%);
