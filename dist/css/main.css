@@ -6071,3 +6071,21 @@ footer {
   .gallery-img:hover {
     opacity: 1;
     transform: scale(1.1); }
+
+#light-box {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  color: #fff; }
+  #light-box img {
+    max-width: 80%;
+    max-height: 80%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; }
