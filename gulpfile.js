@@ -56,4 +56,4 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch("src/*.html", ['copyHTML']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['jquery','js', 'imagemin', 'copyHTML', 'serve']);
+gulp.task('default', ['js', 'imagemin', 'copyHTML', 'jquery', 'serve']);
