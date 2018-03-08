@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $(".gallery-img").click(function(event) {
 
-    $(".navbar").slideUp();
+    $(".navbar").slideUp('fast');
 
     $src = $(this).parent().attr("src");
     $desc = $(this).parent().siblings("p").html();
@@ -41,7 +41,7 @@ $(document).ready(function() {
     });
 
     $("#light-box").fadeOut('fast');
-    $(".navbar").slideDown();
+    $(".navbar").slideDown('fast');
 
   });
 
