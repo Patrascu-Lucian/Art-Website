@@ -6044,13 +6044,17 @@ a.text-dark:hover, a.text-dark:focus {
     position: absolute;
     z-index: -1; }
 
-section {
+.bg-primary {
+  color: #fff; }
+
+.bg-secondary {
   color: #fff; }
 
 .card .card-link .card-img {
+  opacity: 0.7;
   transition: all .3s ease-in-out; }
   .card .card-link .card-img:hover {
-    opacity: 0.7;
+    opacity: 1;
     transform: scale(1.1); }
 
 footer {
@@ -6060,3 +6064,10 @@ footer {
     footer a:hover {
       color: white;
       text-decoration: none; }
+
+.gallery-img {
+  opacity: 0.7;
+  transition: all .3s ease-in-out; }
+  .gallery-img:hover {
+    opacity: 1;
+    transform: scale(1.1); }
