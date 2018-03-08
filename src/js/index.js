@@ -11,8 +11,15 @@ $(document).ready(function() {
     if (!$("#light-box").length > 0) {
 
       $("body").append(`<div id='light-box' style='display: none'>
-        <h1></h1>
-        <img src=''><p></p>
+          <h1></h1>
+          <div class="row justify-content-center align-items-center">
+            <div class='col-lg-9'>
+              <img src=''>
+            </div>
+            <div class='col-lg-3'>
+              <p></p>
+            </div>
+          </div>
         </div>`);
 
       $("#light-box").fadeIn('fast');
