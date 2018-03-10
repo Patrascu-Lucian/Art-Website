@@ -51,7 +51,7 @@ $theme-colors: (
       transition: all .3s ease-in-out;
       &:hover{
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
@@ -75,7 +75,7 @@ footer {
   transition: all .3s ease-in-out;
   &:hover{
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 

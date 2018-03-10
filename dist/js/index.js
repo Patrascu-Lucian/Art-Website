@@ -1,10 +1,13 @@
 $(document).ready(function() {
 
-  $(".gallery-img").click(function(event) {
 
+  $(".gallery-img").click(function(event) {
     $(".navbar").slideUp('fast');
 
-    $src = $(this).parent().attr("src");
+    $srcSplit = $(this).attr("src").split("-");
+    $src = $srcSplit[0] + ".jpg";
+
+    console.log($src);
     $desc = $(this).parent().siblings("p").html();
     $title = $(this).parent().siblings("h1").html();
 
