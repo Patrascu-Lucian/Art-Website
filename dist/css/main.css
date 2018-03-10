@@ -6090,6 +6090,8 @@ footer {
     margin-right: auto; }
   #light-box p {
     text-align: center; }
+  #light-box button {
+    transform: translateX(-50%); }
 
 .hidden-p {
   display: none; }

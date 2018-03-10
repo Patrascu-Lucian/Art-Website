@@ -50,10 +50,10 @@ gulp.task('serve', ['sass'], function() {
         server: "dist"
     });
 
+    gulp.watch('src/js/*.js', ['jquery', 'js']);
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
-    gulp.watch('src/js/*.js', ['jquery']);
     gulp.watch('src/images/*', ['imagemin']);
     gulp.watch("src/*.html", ['copyHTML']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js', 'imagemin', 'copyHTML', 'jquery', 'serve']);
+gulp.task('default', ['jquery', 'js', 'imagemin', 'copyHTML', 'serve']);
