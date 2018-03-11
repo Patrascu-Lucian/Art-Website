@@ -87,6 +87,11 @@ footer {
    top: 0; left: 0;
    color: #fff;
 
+  button{
+    position: absolute;
+    top: 0; right: 0; down: 0; left: 95%;
+  }
+
   h1{
     text-align: center;
   }
@@ -104,9 +109,6 @@ footer {
     text-align: center;
   }
 
-  button{
-    transform: translateX(-50%);
-  }
  }
 
  .hidden-p{
@@ -126,7 +128,6 @@ footer {
 
     p{
       text-align: left;
-      transform: translateX(-25%);
     }
   }
  }
