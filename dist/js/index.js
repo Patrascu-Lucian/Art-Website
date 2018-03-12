@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+  $("a[href^=\\#]").click(function(e) {
+    e.preventDefault();
+    history.pushState(null, null, dest);
+    var dest = $(this).attr('href');
+    console.log(dest);
+    $('html,body').animate({
+      scrollTop: $(dest).offset().top
+    }, 'normal');
+  });
 
   $(".gallery-img").click(function(event) {
     $(".navbar").slideUp('fast');
@@ -7,7 +16,6 @@ $(document).ready(function() {
     $srcSplit = $(this).attr("src").split("-");
     $src = $srcSplit[0] + ".jpg";
 
-    console.log($src);
     $desc = $(this).parent().siblings("p").html();
     $title = $(this).parent().siblings("h1").html();
 
