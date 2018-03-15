@@ -23,7 +23,7 @@ gulp.task('imagemin', () =>
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+    return gulp.src(['src/scss/*.scss'])
         .pipe(sass())
           .pipe(gulp.dest("dist/css"))
             .pipe(browserSync.stream());
@@ -51,7 +51,7 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch('src/js/*.js', ['jquery', 'js']);
-    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
+    gulp.watch(['src/scss/*.scss'], ['sass']);
     gulp.watch('src/images/*', ['imagemin']);
     gulp.watch("src/*.html", ['copyHTML']).on('change', browserSync.reload);
 });
