@@ -1,5 +1,18 @@
+// Form validation JS Handling
+var form = document.querySelector('.needs-validation');
+
+form.addEventListener('submit', function(event){
+  if (form.checkValidity() === false){
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  form.classList.add('was-validated');
+});
+
+// JQuery
 $(document).ready(function() {
 
+  // Smooth anchor scrolling
   $("a[href^=\\#]").click(function(e) {
     e.preventDefault();
     history.pushState(null, null, dest);
@@ -10,6 +23,7 @@ $(document).ready(function() {
     }, 'normal');
   });
 
+  // Lightbox
   $(".gallery-img").click(function(event) {
     $(".navbar").slideUp('fast');
 
@@ -20,7 +34,6 @@ $(document).ready(function() {
     $title = $(this).parent().siblings("h1").html();
 
     if (!$("#light-box").length > 0) {
-
       $("body").append(`<div id='light-box' style='display: none' class="row align-items-center justify-content-center mx-auto">
             <button type="button" class="close text-white"><span aria-hidden="true">&times;</span>
             </button>
@@ -53,6 +66,7 @@ $(document).ready(function() {
 
   });
 
+  // Light box close handling
   $("body").on("click", '#light-box', function() {
 
     $('#light-box img').on('click', function(e) {
