@@ -12,29 +12,38 @@ form.addEventListener('submit', function(event){
 // JQuery
 $(document).ready(function() {
 
-  // Smooth anchor scrolling
-  $("a[href^=\\#]").click(function(e) {
-    e.preventDefault();
-    history.pushState(null, null, dest);
-    var dest = $(this).attr('href');
-    console.log(dest);
-    $('html,body').animate({
-      scrollTop: $(dest).offset().top
-    }, 'normal');
-  });
-
-  // Lightbox
+  // Lightbox variables
   $(".gallery-img").click(function(event) {
-    $(".navbar").slideUp('fast');
+    var $navBar = $(".navbar");
 
-    $srcSplit = $(this).attr("src").split("-");
-    $src = $srcSplit[0] + ".jpg";
+    var $srcSplit = $(this).attr("src").split("-");
+    var $src = $srcSplit[0] + ".jpg";
 
-    $desc = $(this).parent().siblings("p").html();
-    $title = $(this).parent().siblings("h1").html();
+    var $desc = $(this).parent().siblings("p").html();
+    var $title = $(this).parent().siblings("h1").html();
 
+    var $body = $("body");
+
+    // Light box functionality
+    function lBcontrol() {
+      $navBar.slideUp(300);
+
+      var $lightBox = $("#light-box");
+      var $img = $lightBox.find("img");
+      var $para = $lightBox.find("p");
+      var $heading = $lightBox.find("heading");
+
+      $lightBox.fadeIn('fast');
+      $img.attr("src", $src);
+      $para.html($desc);
+      $heading.html($title);
+
+      event.preventDefault();
+    }
+
+    // if there is no lightbox, insert one
     if (!$("#light-box").length > 0) {
-      $("body").append(`<div id='light-box' style='display: none' class="row align-items-center justify-content-center mx-auto">
+      $body.append(`<div id='light-box' style='display: none' class="row align-items-center justify-content-center mx-auto">
             <button type="button" class="close text-white"><span aria-hidden="true">&times;</span>
             </button>
           <div class='col-lg'>
@@ -47,21 +56,11 @@ $(document).ready(function() {
         </div>`
       );
 
-      $("#light-box").fadeIn('fast');
-      $("#light-box img").attr("src", $src);
-      $("#light-box p").html($desc);
-      $("#light-box h1").html($title);
-
-      event.preventDefault();
+      lBcontrol();
 
     } else {
 
-      $("#light-box").fadeIn('fast');
-      $("#light-box img").attr("src", $src);
-      $("#light-box p").html($desc);
-      $("#light-box h1").html($title);
-
-      event.preventDefault();
+      lBcontrol();
     }
 
   });
@@ -73,9 +72,20 @@ $(document).ready(function() {
       e.stopPropagation();
     });
 
-    $("#light-box").fadeOut('fast');
-    $(".navbar").slideDown('fast');
+    $("#light-box").fadeOut(300);
+    $(".navbar").slideDown(300);
 
+  });
+
+  // Smooth anchor scrolling
+  $("a[href^=\\#]").click(function(e) {
+    e.preventDefault();
+    history.pushState(null, null, dest);
+    var dest = $(this).attr('href');
+    console.log(dest);
+    $('html, body').animate({
+      scrollTop: $(dest).offset().top
+    }, 300);
   });
 
 });
