@@ -6075,7 +6075,8 @@ footer {
   .gallery-img:hover {
     cursor: pointer;
     opacity: 1;
-    transform: scale(1.05); }
+    transform: translateY(-3%);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .light-box {
   display: none;

@@ -83,10 +83,12 @@ footer {
 .gallery-img{
   opacity: 0.7;
   transition: all .3s ease-in-out;
+
   &:hover{
     cursor: pointer;
     opacity: 1;
-    transform: scale(1.05);
+    transform: translateY(-3%);
+    box-shadow: 0 .5rem 1rem rgba(black, .2);
   }
 }
 
