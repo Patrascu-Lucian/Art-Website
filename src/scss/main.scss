@@ -1,11 +1,15 @@
 //Variable Overrides
-$body-bg: #ccc;
+$body-bg: #eee;
 
 $theme-colors: (
   "primary": #0B0A40,
   "secondary": #ccb697,
-  "info": #9999cc
+  "info": #eee
 );
+
+$primary-color: #0B0A40;
+$secondary-color: #ccb697;
+$tertiary-color: #eee;
 
 //Bootstrap Sass Files
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -13,6 +17,11 @@ $theme-colors: (
 // My Imports
 @import "functions";
 
+
+html {
+  padding: 2%;
+  background: white;
+}
 // Header
 .jumbotron{
   position: relative;
@@ -36,11 +45,12 @@ $theme-colors: (
 
 //SECTIUNI
 .bg-primary{
-  color: text-color($primary);
+  background-image: linear-gradient(to right, lighten($primary-color, 15%), $primary-color);
+  color: $tertiary-color;
 }
 
 .bg-secondary{
-  color: text-color($secondary);
+  background-image: linear-gradient(to right, lighten($secondary-color, 15%), $secondary-color);
 }
 
   //CARDS
@@ -69,65 +79,150 @@ footer {
 }
 
 
-// iarna.html
+// image gallery
 .gallery-img{
   opacity: 0.7;
   transition: all .3s ease-in-out;
   &:hover{
+    cursor: pointer;
     opacity: 1;
     transform: scale(1.05);
   }
 }
 
-#light-box {
-   position: fixed;
-   height: 100%;
-   width: 100%;
-   background: rgba(0, 0, 0, 0.9);
-   top: 0; left: 0;
-   color: #fff;
+// Lightbox
+.light-box {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0; left: 0;
+  color: #333;
+  z-index: 2000;
 
-  button{
+  &__box {
     position: absolute;
-    top: 0; right: 0; down: 0; left: 95%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 3px;
+    max-height: 95%;
+    max-width: 95%;
+    overflow: hidden;
+
+    border-bottom: .8rem solid white; // so the image won't overflow the padding
+
   }
 
-  h1{
+  &__close {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: #eee;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #999;
+      color: #333;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__heading {
     text-align: center;
+    margin: 1% 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, lighten($primary-color, 50%), $primary-color);
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
-  img {
-   max-height: 80vh;
-   max-width: 80vw;
-   height: auto;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
+  &__img-container {
+    float: left;
+    padding: 0 2%;
+    width: 70%;
+    border-radius: 3px;
   }
 
-  p{
-    text-align: center;
+  &__img {
+    display: block;
+    max-width: 100%;
+    border-radius: 3px;
+    max-height: 100%;
   }
 
- }
+  &__paragraph {
+    float: left;
+    padding: 2% 2% 0 0;
+    width: 30%;
+    text-align: left;
+  }
 
- .hidden-p{
-   display:none;
- }
+}
 
 
- // Media queries iarna.html
- @media (min-width: 768px) {
+// Media queries galery
+@media (min-width: 768px) {
   .gallery-img {
     width: 200px;
   }
- }
+}
 
- @media (min-width: 992px) {
-  #light-box {
+// Lightbox media queries
 
-    p{
-      text-align: left;
+//Tablet
+@media (max-width: 1100px) {
+  .light-box {
+
+    &__box {
+      width: 90%;
+      overflow: scroll;
+      margin-bottom: 0;
+    }
+
+    &__img-container {
+      width: 55%;
+    }
+
+    &__paragraph {
+      width: 45%;
+      padding: 2% 2% 0 2%;
     }
   }
- }
+}
+
+//Phone
+@media (max-width: 425px) {
+  .light-box {
+
+    &__box {
+      width: 95%;
+      margin-bottom: 0;
+    }
+
+    &__heading {
+      font-size: 150%;
+      margin-top: 8%;
+    }
+
+    &__img-container {
+      width: 100%;
+    }
+
+    &__paragraph {
+      width: 100%;
+      padding: 2% 2% 0 2%;
+    }
+  }
+}
