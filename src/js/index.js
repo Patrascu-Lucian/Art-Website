@@ -12,28 +12,44 @@ form.addEventListener('submit', function(event){
 // JQuery
 $(document).ready(function() {
   // Lightbox variables
+  var $gallery = $(".gallery-img");
+  var $lightBox = $('.light-box');
+  var $lightBoxClose = $lightBox.find('.light-box__close');
 
-
-  $(".gallery-img").click(function(event) {
-
-    $(this).siblings('.light-box').fadeIn(200);
-
+  // On gallery image click event handling
+  $gallery.click(function(event) {
+    $(this).next($lightBox).fadeIn(200);
   });
 
-  $('.light-box__close').click(function (e) {
+  // close handling
+  // On button
+  $($lightBoxClose).click(function (e) {
     $(this).parent().parent().fadeOut(200);
+  });
+
+  // On dark space
+  $lightBox.click(function (e) {
+
+    if($(e.target).hasClass('light-box') ) {
+        $(this).fadeOut(200);
+   }
+
   });
 
 
   // Smooth anchor scrolling
   $("a[href^=\\#]").click(function(e) {
     e.preventDefault();
+
     history.pushState(null, null, dest);
+
     var dest = $(this).attr('href');
+
     console.log(dest);
+
     $('html, body').animate({
       scrollTop: $(dest).offset().top
-    }, 300);
+    }, 400, 'swing');
   });
 
 });
