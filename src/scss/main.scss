@@ -98,11 +98,13 @@ html {
 
  //FOOTER
 footer {
-  color: text-color($primary);
-  a{
+  a, a:link, a:visited{
     text-decoration: none;
+    color: darken($secondary-color, 15%) !important;
+    transition: all .2s;
     &:hover{
       text-decoration: none;
+      color: $secondary-color !important;
     }
   }
 }
@@ -114,10 +116,11 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-    transition: all .3s ease-in-out;
+  padding: 3rem 0;
+  transition: all .3s ease-in-out;
 }
 
-.gallery-img{
+.gallery-img {
   transition: all .3s ease-in-out;
   border-radius: 2px;
 	-webkit-filter: grayscale(50%);

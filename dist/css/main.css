@@ -6084,18 +6084,20 @@ html {
       transform: scale(1.1) rotate(-2deg);
       filter: grayscale(50%); }
 
-footer {
-  color: #fff; }
-  footer a {
-    text-decoration: none; }
-    footer a:hover {
-      text-decoration: none; }
+footer a, footer a:link, footer a:visited {
+  text-decoration: none;
+  color: #b39264 !important;
+  transition: all .2s; }
+  footer a:hover, footer a:link:hover, footer a:visited:hover {
+    text-decoration: none;
+    color: #ccb697 !important; }
 
 .gallery-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0;
   transition: all .3s ease-in-out; }
 
 .gallery-img {
