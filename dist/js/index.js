@@ -15,13 +15,21 @@ $(document).ready(function() {
   var $gallery = $(".gallery-img");
   var $lightBox = $('.light-box');
   var $lightBoxClose = $lightBox.find('.light-box__close');
+  var $fullScrnBtn = $lightBox.find('.full-scrn-btn');
+  var $lightBoxImg = $lightBox.find('.light-box__img');
 
   // On gallery image click event handling
   $gallery.click(function(event) {
     $(this).next($lightBox).fadeIn(200);
   });
 
-  // close handling
+  // On full screen button click event Handling
+  $fullScrnBtn.click(function(event){
+    var $img = $(this).prev($lightBoxImg).attr('src');
+    window.open($img);
+  });
+
+  // LightBox -  close handling
   // On button
   $($lightBoxClose).click(function (e) {
     $(this).parent().parent().fadeOut(200);
@@ -41,15 +49,15 @@ $(document).ready(function() {
   $("a[href^=\\#]").click(function(e) {
     e.preventDefault();
 
-    history.pushState(null, null, dest);
+    history.pushState(null, null, $dest);
 
-    var dest = $(this).attr('href');
+    var $dest = $(this).attr('href');
 
-    console.log(dest);
+    console.log($dest);
 
     $('html, body').animate({
-      scrollTop: $(dest).offset().top
-    }, 400, 'swing');
+      scrollTop: $($dest).offset().top
+    }, 400);
   });
 
 });
