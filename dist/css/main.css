@@ -6059,30 +6059,89 @@ html {
 .bg-secondary {
   background-image: linear-gradient(to right, #e5daca, #ccb697); }
 
-.card {
-  background-image: linear-gradient(to bottom right, #f7f7f7, #ddd); }
-  .card .card-title {
-    text-transform: uppercase;
-    transition: all .3s ease-in-out;
-    opacity: 0.7; }
-  .card:hover .card-link .card-img {
-    transform: scale(1) rotate(0deg);
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0); }
-  .card:hover .card-title {
-    transform: scale(1.1) rotate(-2deg);
-    opacity: 1;
-    font-weight: 800; }
-  .card .card-link {
+.main-menu-container {
+  margin: 4vw auto 10vw auto;
+  width: 80vw; }
+  .main-menu-container__heading {
+    text-align: center;
+    margin-bottom: 3vw; }
+
+.main-menu {
+  width: 100%;
+  height: 28vw;
+  display: flex;
+  perspective: 100rem; }
+  .main-menu > * {
+    background-color: #333;
+    height: 100%;
+    flex: 0 0 25%;
+    border: 1px solid #333;
+    border-radius: 3px;
+    transition: all .5s;
+    backface-visibility: hidden;
     overflow: hidden;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
-    .card .card-link .card-img {
-      transition: all .3s ease-in-out;
-      -webkit-filter: grayscale(50%);
-      transform: scale(1.1) rotate(-2deg);
-      filter: grayscale(50%); }
+    background-image: linear-gradient(to bottom right, #6562e7, #0B0A40); }
+    .main-menu > *:hover {
+      cursor: pointer;
+      z-index: 10; }
+  .main-menu > *:hover .main-menu__caption {
+    transform: translateY(0);
+    transform-origin: center; }
+  .main-menu > *:hover .main-menu__figure {
+    opacity: .9; }
+  .main-menu__left-1 {
+    transform: rotateY(60deg) scale(1.2);
+    box-shadow: -1.5rem 1rem 1.5rem rgba(0, 0, 0, 0.2); }
+    .main-menu__left-1:hover {
+      transform: rotateY(55deg) scale(1.25); }
+  .main-menu__left-2 {
+    transform: rotateY(30deg);
+    box-shadow: -1rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+    .main-menu__left-2:hover {
+      transform: rotateY(25deg) scale(1.05); }
+  .main-menu__right-1 {
+    transform: rotateY(-30deg);
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+    .main-menu__right-1:hover {
+      transform: rotateY(-25deg) scale(1.05); }
+  .main-menu__right-2 {
+    transform: rotateY(-60deg) scale(1.2);
+    box-shadow: 1.5rem 1rem 1.5rem rgba(0, 0, 0, 0.2); }
+    .main-menu__right-2:hover {
+      transform: rotateY(-55deg) scale(1.25); }
+  .main-menu__figure {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    opacity: .8;
+    backface-visibility: hidden;
+    transition: all .2s; }
+  .main-menu__img {
+    max-width: 100%;
+    max-height: 100%; }
+  .main-menu__caption {
+    position: absolute;
+    bottom: 0;
+    background-color: #0B0A40;
+    color: #eee;
+    opacity: .8;
+    width: 100%;
+    font-family: 'Hi Melody';
+    font-size: 3rem;
+    height: 35%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 100%);
+    transition: all .5s;
+    transform: translateY(100%); }
+    @media only screen and (hover: none) {
+      .main-menu__caption {
+        transform: translateY(0); } }
+    @media only screen and (max-width: 700px) {
+      .main-menu__caption {
+        font-size: 1.5rem; } }
 
 footer a, footer a:link, footer a:visited {
   text-decoration: none;
@@ -6191,7 +6250,7 @@ footer a, footer a:link, footer a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px; }
+    border-radius: 2px; }
     .light-box .full-scrn-btn svg {
       width: 60%;
       height: 60%;
@@ -6225,6 +6284,9 @@ footer a, footer a:link, footer a:visited {
     width: 200px; } }
 
 @media (max-width: 1100px) {
+  html {
+    font-size: 90%;
+    padding: 0; }
   .light-box__box {
     width: 90%;
     overflow: auto; }
@@ -6251,7 +6313,7 @@ footer a, footer a:link, footer a:visited {
 
 @media (max-width: 500px) {
   html {
-    font-size: 90%; }
+    font-size: 80%; }
   .light-box__heading {
     font-size: 2.25rem; }
   .light-box__close svg {
@@ -6263,7 +6325,7 @@ footer a, footer a:link, footer a:visited {
 
 @media (max-width: 400px) {
   html {
-    font-size: 75%; }
+    font-size: 70%; }
   .gallery-img {
     width: 130px; }
     .gallery-img:not(:last-child) {

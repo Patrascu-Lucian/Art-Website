@@ -59,41 +59,128 @@ html {
   background-image: linear-gradient(to right, lighten($secondary-color, 15%), $secondary-color);
 }
 
-  //CARDS
-.card{
-  background-image: linear-gradient(to bottom right, lighten(#ddd, 10%), #ddd);
+// MAIN MENU ====================
+.main-menu-container {
+  margin: 4vw auto 10vw auto;
+  width: 80vw;
 
-  .card-title {
-    text-transform: uppercase;
-    transition: all .3s ease-in-out;
-    opacity: 0.7;
+  &__heading {
+    text-align: center;
+    margin-bottom: 3vw;
   }
+}
+.main-menu {
+  width: 100%;
+  height: 28vw;
+  display: flex;
+  perspective: 100rem;
 
-  &:hover .card-link .card-img{
-    transform: scale(1) rotate(0deg);
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
-
-  &:hover .card-title{
-    transform: scale(1.1) rotate(-2deg);
-    opacity: 1;
-    font-weight: 800;
-  }
-
-  .card-link{
-    overflow: hidden;
-    box-shadow: 0 .5rem 1rem rgba(black, .3);
-    -webkit-backface-visibility: hidden;
+  & > * {
+    background-color: #333;
+    height: 100%;
+    flex: 0 0 25%;
+    border: 1px solid #333;
+    border-radius: 3px;
+    transition: all .5s;
     backface-visibility: hidden;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, lighten($primary-color, 50%), $primary-color);
 
-    .card-img{
-    	transition: all .3s ease-in-out;
-    	-webkit-filter: grayscale(50%);
-      transform: scale(1.1) rotate(-2deg);
-    	filter: grayscale(50%);
+    &:hover{
+      cursor: pointer;
+      z-index: 10;
     }
   }
+
+  & > *:hover &__caption {
+    transform: translateY(0);
+    transform-origin: center;
+  }
+  & > *:hover &__figure {
+    opacity: .9;
+  }
+
+
+  &__left-1{
+    transform: rotateY(60deg) scale(1.2);
+    box-shadow: -1.5rem 1rem 1.5rem rgba(#000, .2);
+
+    &:hover{
+      transform: rotateY(55deg) scale(1.25);
+    }
+  }
+
+  &__left-2{
+    transform: rotateY(30deg);
+    box-shadow: -1rem 1rem 1rem rgba(#000, .2);
+
+    &:hover{
+      transform: rotateY(25deg) scale(1.05);
+    }
+  }
+
+  &__right-1{
+    transform: rotateY(-30deg);
+    box-shadow: 1rem 1rem 1rem rgba(#000, .2);
+
+    &:hover{
+      transform: rotateY(-25deg) scale(1.05);
+    }
+  }
+
+  &__right-2{
+    transform: rotateY(-60deg) scale(1.2);
+    box-shadow: 1.5rem 1rem 1.5rem rgba(#000, .2);
+
+    &:hover{
+      transform: rotateY(-55deg) scale(1.25);
+    }
+  }
+
+  // FIGURES
+  &__figure {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    opacity: .8;
+    backface-visibility: hidden;
+    transition: all .2s;
+  }
+  &__img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &__caption {
+    position: absolute;
+    bottom: 0;
+    background-color: $primary-color;
+    color: #eee;
+    opacity: .8;
+    width: 100%;
+    font-family: 'Hi Melody';
+    font-size: 3rem;
+    height: 35%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center; 
+
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 100%);
+
+    transition: all .5s;
+    transform: translateY(100%);
+
+    @media only screen and (hover: none){
+      transform: translateY(0);
+    }
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1.5rem;
+    }
+  }
+
 }
 
  //FOOTER
@@ -237,7 +324,7 @@ footer {
     align-items: center;
     justify-content: center;
 
-    border-radius: 3px;
+    border-radius: 2px;
 
     svg {
       width: 60%;
@@ -291,10 +378,13 @@ footer {
   }
 }
 
-// Lightbox media queries
-
+// Media queries galery (max-width)
 //Tablet landscape
 @media (max-width: 1100px) {
+  html {
+    font-size: 90%;
+    padding: 0;
+  }
   .light-box {
 
     &__box {
@@ -346,7 +436,7 @@ footer {
 //Phone-big
 @media (max-width: 500px){
   html{
-    font-size: 90%;
+    font-size: 80%;
   }
 
   .light-box {
@@ -373,7 +463,7 @@ footer {
 //Phone-small
 @media (max-width: 400px) {
   html {
-    font-size: 75%;
+    font-size: 70%;
   }
 
   .gallery-img {
