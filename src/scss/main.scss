@@ -16,6 +16,7 @@ $tertiary-color: #eee;
 
 // My Imports
 @import "functions";
+@import "components";
 
 // BASE SETTINGS
 body {
@@ -70,7 +71,7 @@ html {
 
   &__heading {
     text-align: center;
-    margin-bottom: 3vw;
+    margin-bottom: 8vw;
   }
 }
 .main-menu {

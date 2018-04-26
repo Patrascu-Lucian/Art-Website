@@ -1,0 +1,25 @@
+// Headings
+.heading-1 {
+  display: flex;
+  margin: 2rem auto;
+  justify-content: center;
+  padding: .5rem 3rem;
+  font-size: 2.5rem;
+  font-family: 'Hi Melody';
+  text-transform: uppercase;
+  letter-spacing: .5rem;
+
+  &--color-1 {
+    background-image: linear-gradient(to right, transparent, lighten($primary-color, 20%), transparent);
+    color: #eee;
+  }
+
+  &--color-2 {
+    background-image: linear-gradient(to right, transparent, darken($secondary-color,5%), transparent);
+    color: #333;
+  }
+
+  &--hero {
+    text-align: center;
+  }
+}

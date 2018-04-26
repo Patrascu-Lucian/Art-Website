@@ -6026,6 +6026,24 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important; } }
 
+.heading-1 {
+  display: flex;
+  margin: 2rem auto;
+  justify-content: center;
+  padding: .5rem 3rem;
+  font-size: 2.5rem;
+  font-family: 'Hi Melody';
+  text-transform: uppercase;
+  letter-spacing: .5rem; }
+  .heading-1--color-1 {
+    background-image: linear-gradient(to right, transparent, #1a1898, transparent);
+    color: #eee; }
+  .heading-1--color-2 {
+    background-image: linear-gradient(to right, transparent, #c4aa86, transparent);
+    color: #333; }
+  .heading-1--hero {
+    text-align: center; }
+
 body {
   line-height: 1.7; }
 
@@ -6067,7 +6085,7 @@ html {
       width: 100%; } }
   .main-menu-container__heading {
     text-align: center;
-    margin-bottom: 3vw; }
+    margin-bottom: 8vw; }
 
 .main-menu {
   width: 100%;
