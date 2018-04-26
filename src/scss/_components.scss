@@ -8,6 +8,7 @@
   font-family: 'Hi Melody';
   text-transform: uppercase;
   letter-spacing: .5rem;
+  text-align: center;
 
   &--color-1 {
     background-image: linear-gradient(to right, transparent, lighten($primary-color, 20%), transparent);
@@ -20,6 +21,6 @@
   }
 
   &--hero {
-    text-align: center;
+    
   }
 }
