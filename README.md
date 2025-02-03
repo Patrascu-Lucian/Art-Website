@@ -1,2 +1,2 @@
 # Art-Website
-An website for handmade art
+A website for handmade art
